@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>authentication</title>
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{message}}
+    <button type="submit" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+    <h2 class ="example">Programming resources</h2>
+
+    {% if user.is_authenticated %}
+    <title>logged in</title>
+     <meta charset="UTF-8" />
+     <meta http-equiv="refresh" content="7; URL=https://www.notion.so/Wanna-learn-257f806ff54442508523a43f3954be79" />
+   </head>
+   <body>
+     <p>thank you for testing my login system.Now i will redirect you to our notion page what has resources to learn programming.If you are not redirected within 10 seconds, click <a href="https://www.notion.so/Wanna-learn-257f806ff54442508523a43f3954be79">here</a></p>
+     <button class= "example2" type="submit"><a href = "/signout">Signout</a></button>
+     <button class= "example2" type="submit"><a href = "/signup">create new account account</a></button>
+     <button class= "example2" type="submit"><a href = "/signin">login using another account</a></button>
+     <div class="example3"><hr style = "width: 100%;">
+        <div class="example"><a href="https://github.com/arjunprakash027">Github</a><a href="https://www.linkedin.com/in/arjun-prakash-589348211/">Linkdin</a><a href="https://arjunprakash027.github.io/">Arjun's website</a></div>
+    </div>
+   </body>
+    {% else %}
+    <div class="example"> <button class="example2" type="submit"><a href = "/signup"><span>Signup</span></a></button></div>
+    <div class="example"> <button class="example2" type="submit"><a href = "/signin"><span>Signin</span></a></button></div>
+    {% endif %}
+    
+</body>
+
+<style>
+    body{
+        background-color:#1d0016;
+        color:#FCCEF1;
+        padding:0;
+        margin:0;
+    }
+    .example{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .example2{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background-color:#FCCEF1;
+        color:#33252F;
+        border-radius: 1rem;
+        transition: all 500ms ease;
+     }
+    .example2:hover{
+        transform: scale(1.1)
+    }
+    .example > * + *{
+        margin-left:2rem
+    }
+    .example3{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .example3 > * + *{
+        margin-top:2rem
+    }
+</style>
+</html>
