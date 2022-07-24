@@ -15,7 +15,6 @@
     </button>
     </div>
     {% endfor %}
-    <h2 class ="example">My django project</h2>
 
     {% if user.is_authenticated %}
     <title>logged in</title>
@@ -34,6 +33,7 @@
           </div>
         </div> 
       </div>
+      <h2 class ="example">My django project</h2>
      <p>thank you for testing my login system</p>
      <br>
      <p>Enter chatrooms:</p>
@@ -55,6 +55,18 @@
     </div>
    </body>
     {% else %}
+    <div class="navbar">
+        <div class="dropdown">
+          <button class="dropbtn">login
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="/signup">new user? signup</a>
+            <a href="/signin">login</a>
+          </div>
+        </div> 
+      </div>
+      <h2 class ="example">My django project</h2>
     <div class="example"> <button class="example2" type="submit"><a href = "/signup"><span>Signup</span></a></button></div>
     <div class="example"> <button class="example2" type="submit"><a href = "/signin"><span>Signin</span></a></button></div>
     {% endif %}
