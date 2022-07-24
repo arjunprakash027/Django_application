@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from .models import report
+from django import forms
 
 
 # Create your views here.
@@ -59,6 +61,21 @@ def signin(request):
             return redirect('signin')
      
     return render(request, 'authapp/signin.html')
+
+def show(request):
+    reviewz = report.objects
+    return render(request, 'authapp/show.html', {'reviewz':reviewz})
+
+def feedback(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        user_report = request.POST.get('report')
+
+        new_report = report(name=username,user_feedback=user_report)
+        new_report.save()
+        return redirect('home')
+
+    return render(request, 'authapp/feedback.html')
 
 def signout(request):
     auth.logout(request)

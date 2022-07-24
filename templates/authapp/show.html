@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Reviews of our application</title>
+</head>
+{% if user.is_authenticated %}
+<body>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>feedback</th>
+    
+        </tr>
+        {% for k in reviewz.all %}
+            <tr>
+                <td>{{k.name}}</td>
+                <td>{{k.user_feedback}}</td>
+                
+            </tr>
+            {% endfor %}
+    </table>
+    {% else %}
+    <p> sorry only for authorized users</p>
+    {% endif %}   
+</body>
+<style>
+    table,th,td {
+        border:1px solid black;
+    }
+    body{
+        background-color:#1d0016;
+        color:#FCCEF1;
+        padding:0;
+        margin:0;
+    }
+    .example{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .example2{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content:center;
+        padding: 1rem;
+        background-color:#FCCEF1;
+        color:#33252F;
+        border-radius: 1rem;
+        transition: all 500ms ease;
+     }
+    .example2:hover{
+        transform: scale(1.1)
+    }
+    .example > * + *{
+        margin-left:2rem
+    }
+</style>
+
+</html>
