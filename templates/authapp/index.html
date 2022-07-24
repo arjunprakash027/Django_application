@@ -45,8 +45,7 @@
         <input type="hidden" name="username" id="username" value="{{ request.user.username }}" width="100px" />
         <input type="submit" value="Enter Room">
     </form>
-     <div class="example3"><hr style = "width: 100%;">
-        <div class="example"><a href="https://github.com/arjunprakash027">Github</a><a href="https://www.linkedin.com/in/arjun-prakash-589348211/">Linkdin</a><a href="https://arjunprakash027.github.io/">Arjun's website</a></div>
+        <div class= "example3" style=" position: absolute; bottom: 0; left: 0; width: 100%; text-align: center;"><a href="https://github.com/arjunprakash027">Github</a><a href="https://www.linkedin.com/in/arjun-prakash-589348211/">Linkdin</a><a href="https://arjunprakash027.github.io/">Arjun's website</a></div>
     </div>
    </body>
     {% else %}
@@ -104,6 +103,15 @@
     .example3 > * + *{
         margin-top:2rem
     }
+
+    #copyright {
+	float: left;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	bottom: 0px;
+	width: 100%;
+}
 
     .navbar {
   overflow: hidden;

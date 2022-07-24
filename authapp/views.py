@@ -12,7 +12,7 @@ from django.http import JsonResponse
 def home(request):
     return render(request, 'authapp/index.html')
 
-def signup(request):
+def signup(request):#registers a new user
 
     if request.method == "POST":
         username = request.POST.get('username')
@@ -42,7 +42,7 @@ def signup(request):
     else:
          return render(request, 'authapp/signup.html')
 
-def signin(request):
+def signin(request):#gets login info from the user to signin
     if request.method == 'POST':
         username = request.POST.get('username')
         pwd3 = request.POST.get('pwd3')
@@ -63,11 +63,11 @@ def signin(request):
      
     return render(request, 'authapp/signin.html')
 
-def show(request):
+def show(request):#show the feedback..its not present as a button in website...it just for authenticated user to read the comments
     reviewz = report.objects
     return render(request, 'authapp/show.html', {'reviewz':reviewz})
 
-def feedback(request):
+def feedback(request):#get feedback from user
     if request.method == 'POST':
         username = request.POST.get('username')
         user_report = request.POST.get('report')
@@ -78,7 +78,7 @@ def feedback(request):
 
     return render(request, 'authapp/feedback.html')
 
-def room(request, room):
+def room(request, room):#fetches the given room
     username = request.GET.get('username')
     room_details = Room.objects.get(name=room)
     return render(request, 'authapp/room.html', {
@@ -87,7 +87,7 @@ def room(request, room):
         'room_details': room_details
     })
 
-def checkview(request):
+def checkview(request):#checks if the given room is already present or not
     room = request.POST['room_name']
     username = request.POST['username']
 
@@ -99,7 +99,7 @@ def checkview(request):
         return redirect('/'+room+'/?username='+username)
     
 
-def send(request):
+def send(request):#posts the message
     message = request.POST['message']
     username = request.POST['username']
     room_id = request.POST['room_id']
@@ -108,13 +108,13 @@ def send(request):
     new_message.save()
     return HttpResponse('Message sent successfully')
 
-def getMessages(request, room):
+def getMessages(request, room):#recieves and shows the message
     room_details = Room.objects.get(name=room)
 
     messages = Message.objects.filter(room=room_details.id)
     return JsonResponse({"messages":list(messages.values())})
 
 
-def signout(request):
+def signout(request):#signout
     auth.logout(request)
     return redirect('home')
