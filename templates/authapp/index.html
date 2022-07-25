@@ -62,13 +62,20 @@
       </div>
       <h2 class ="example">My django project</h2>
       <h3 class ="example">Blogs</h3>
-      <!-- Image 1 -->
-      <div class="content_img">
-      <a href="/portfolio">
-      <img src="https://drive.google.com/uc?export=view&id=11scIm5b1wugmHA410HJc_lFaNp1FYYHd" width='100%' height='100%'>
-      <div>my very first blog and portfolio</div>
-      </a>
-      </div>
+      <!--blog-->
+      <div class="container">
+        <div class="card">
+          <a href="/portfolio">
+          <div class="card__header">
+            <img src="https://drive.google.com/uc?export=view&id=11scIm5b1wugmHA410HJc_lFaNp1FYYHd" alt="card__image" class="card__image" width="600">
+          </div>
+          <div class="card__body">
+            <span class="tag tag-blue">self</span>
+            <h4>My first blog</h4>
+            <p>This is my very first blog and my portfolio</p>
+          </a>
+          </div>
+        <!--next blog-->
     {% endif %}
     
 </body>
@@ -181,39 +188,106 @@
   display: block;
 }
 
-/* Parent Container */.content_img{
- position: relative;
- width: 500px;
- height: 500px;
- float: center;
- margin-right: 50px;
- margin-left: 50px;
- display: flex;
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-/* Child Text Container */.content_img div{
- position: absolute;
- bottom: 0;
- right: 0;
- background: black;
- color: white;
- margin-bottom: 5px;
- font-family: sans-serif;
- opacity: 0;
- visibility: hidden;
- -webkit-transition: visibility 0s, opacity 0.5s linear; 
- transition: visibility 0s, opacity 0.5s linear;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1100px;
+  margin-block: 1rem;
+  gap: 2rem;
 }
 
-/* Hover on Parent Container */.content_img:hover{
- cursor: pointer;
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.content_img:hover div{
- width: 150px;
- padding: 8px 15px;
- visibility: visible;
- opacity: 0.7; 
+.card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #703f0e;
+background: linear-gradient(to right, #3a1818, #ECE9E6);
+
+}
+
+
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+
+.tag {
+  align-self: flex-start;
+  padding: .25em .75em;
+  border-radius: 1em;
+  font-size: .75rem;
+}
+
+.tag + .tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: #56CCF2;
+background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #D1913C;
+background: linear-gradient(to bottom, #FFD194, #D1913C);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
 }
 </style>
 </html>
