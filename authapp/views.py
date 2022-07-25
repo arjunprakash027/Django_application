@@ -11,6 +11,8 @@ from django.http import JsonResponse
 # Create your views here.
 def home(request):
     return render(request, 'authapp/index.html')
+def blog(request):
+    return render(request, 'authapp/portfolio.html')
 
 def signup(request):#registers a new user
 
