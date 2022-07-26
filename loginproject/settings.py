@@ -31,6 +31,10 @@ ALLOWED_HOSTS = [
    'https://young-tor-72967.herokuapp.com/',
    'young-tor-72967.herokuapp.com',
    'young-tor-72967.herokuapp.com/',
+   'http://arjunro.herokuapp.com/',
+   'https://arjunro.herokuapp.com/',
+   'arjunro.herokuapp.com',
+   'arjunro.herokuapp.com/',
    '127.0.0.1',
 ]
 
