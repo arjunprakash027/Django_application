@@ -62,21 +62,23 @@
       </div>
       <br><br>
       <h1 class ="example">My django project</h1>
-      <p class ="example3">Blogs</p><br><br>
+      <p class ="example3">Blogs</p>
+      <h5 class ="exaple3"><a href="/portfolio">Who am I? </a></h5><br><br><br>
       <!--blog-->
-      <div class="container">
-        <div class="card">
-          <a href="/portfolio">
-          <div class="card__header">
-            <img src="https://drive.google.com/uc?export=view&id=11scIm5b1wugmHA410HJc_lFaNp1FYYHd" alt="card__image" class="card__image" width="600">
+        <div>
+          {% for post in query %}
+          <div class="card2 mb-4">
+              <div class="card2">
+                  <h2 class="card2-title">{{ post.title }}</h2>
+                  <br>
+                  <p class="card2-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                  <br>
+                  <p class="card2-text">{{post.content|slice:":200" }}</p>
+                  <br>
+                  <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a><br><br>
+              </div>
           </div>
-          <div class="card__body">
-            <span class="tag tag-blue">self</span>
-            <h4>My first blog</h4>
-            <p>This is my very first blog and my portfolio</p>
-          </a>
-          </div>
-        <!--next blog-->
+          {% endfor %}
     {% endif %}
     
 </body>
@@ -188,6 +190,10 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.card2 {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
 
 
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");

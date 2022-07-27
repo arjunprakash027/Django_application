@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog by: {{details.author}}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8 card mb-4  mt-3 left  top">
+            <div class="card-body">
+              <h1> {{ details.title }}</h1><br>
+              <h4 class=" text-muted">{{ details.author }} | {{ details.created_on }}</h4><br><br>
+              <p class="card-text ">{{ details.content | safe }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <a href="https://twitter.com/ArjunRa03919610" class="fa fa-twitter"></a>
+        <a href="https://www.linkedin.com/in/arjun-prakash-589348211/" class="fa fa-linkedin"></a>
+        <a href="https://github.com/arjunprakash027" class="fa fa-github-square"></a>
+      </div>
+</body>
+
+<style>
+
+    p {
+      font-size: 25px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Add a gray background color with some padding */
+    body {
+      text-align: center;
+      font-family: Arial;
+      padding: 20px;
+      background: #1d0016;
+      color: #ddd;
+      justify-content: left;
+    }
+    
+    /* Header/Blog Title */
+    .header {
+      padding: 30px;
+      font-size: 40px;
+      text-align: center;
+      background: #1d0016;
+      color:#ddd;
+    }
+    
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    .leftcolumn {   
+      float: left;
+      width: 75%;
+    }
+    
+    /* Right column */
+    .rightcolumn {
+      float: left;
+      width: 25%;
+      padding-left: 20px;
+    }
+    
+    /* Add a card effect for articles */
+    .card {
+       background-color: #1d0016;
+       padding: 50px;
+       margin-top: 30px;
+       color:#ddd;
+    
+    
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      justify-content: left;
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #1d0016;
+      margin-top: 20px;
+    }
+    
+    .just {
+      text-align: center;
+      text-justify: inter-word;
+    }
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+    
+    .fa:hover {
+        opacity: 0.7;
+    }
+    .fa-twitter {
+      background: #1d0016;
+      color: white;
+    }
+    .fa-linkedin {
+      background: #1d0016;
+      color: white;
+    }
+    .fa-github-square {
+      background: #1d0016;
+      color: white;
+    }

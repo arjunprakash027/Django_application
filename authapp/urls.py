@@ -7,11 +7,11 @@ urlpatterns = [
     path('signup',views.signup,name="signup"),
     path('signin',views.signin,name="signin"),
     path('signout',views.signout,name="signout"),
-    path('show',views.show,name="show"),
     path('feedback',views.feedback,name="feedback"),
-    path('<str:room>/', views.room, name='room'),
+    path('room/<str:room>/', views.room, name='room'),
     path('checkview', views.checkview, name='checkview'),
     path('send', views.send, name='send'),
     path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
-    path('portfolio',views.blog,name ='blog')
+    path('portfolio',views.blog,name ='blog'),
+    path('blog/<slug:slug>/', views.PostDetail, name='post_detail'),
 ]

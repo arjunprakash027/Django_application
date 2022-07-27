@@ -3,14 +3,16 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .models import report,Room,Message
+from .models import report,Room,Message,Post
 from django import forms
 from django.http import JsonResponse
+from django.views import generic
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'authapp/index.html')
+    queryset = Post.objects.all()
+    return render(request, 'authapp/index.html', {'query':queryset})
 def blog(request):
     return render(request, 'authapp/portfolio.html')
 
@@ -94,11 +96,11 @@ def checkview(request):#checks if the given room is already present or not
     username = request.POST['username']
 
     if Room.objects.filter(name=room).exists():
-        return redirect('/'+room+'/?username='+username)
+        return redirect('room/'+room+'/?username='+username)
     else:
         new_room = Room.objects.create(name=room)
         new_room.save()
-        return redirect('/'+room+'/?username='+username)
+        return redirect('room/'+room+'/?username='+username)
     
 
 def send(request):#posts the message
@@ -120,3 +122,7 @@ def getMessages(request, room):#recieves and shows the message
 def signout(request):#signout
     auth.logout(request)
     return redirect('home')
+
+def PostDetail(request,slug):#show the details of the blog
+    blog_details = Post.objects.get(slug=slug)
+    return render(request, 'authapp/post_detail.html',{'details': blog_details})
