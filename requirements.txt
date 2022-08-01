@@ -9,4 +9,4 @@ django-heroku
 gunicorn
 dj-static
 nasapy
-gtts
+gtts	
