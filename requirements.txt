@@ -10,3 +10,4 @@ gunicorn
 dj-static
 nasapy
 gtts	
+pandas
