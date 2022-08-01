@@ -8,3 +8,5 @@ wheel == 0.37.1
 django-heroku
 gunicorn
 dj-static
+nasapy
+gtts
