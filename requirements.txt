@@ -11,3 +11,4 @@ dj-static
 nasapy
 gtts	
 pandas
+requests
