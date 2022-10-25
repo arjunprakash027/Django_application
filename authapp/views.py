@@ -7,7 +7,6 @@ from .models import report,Room,Message,Post
 from django import forms
 from django.http import JsonResponse
 from django.views import generic
-import nasapy
 from datetime import datetime
 import urllib.request
 from gtts import gTTS
@@ -26,15 +25,10 @@ import json
 # Create your views here.
 def home(request):
 
-    k = "ahsBA2GOdaOc8cFMtBX0HoWeHv7dtNgdv0B5bPwc"
-    nasa = nasapy.Nasa(key=k)
-    apod = nasa.picture_of_the_day(hd=True)
-    nasa_img = apod['url']
     queryset = Post.objects.all()
     joke = requests.get('https://geek-jokes.sameerkumar.website/api?format=json')
     context = {
         'query': queryset,
-        'nasa_img': nasa_img,
         'joke':joke.text,
     }
     return render(request, 'authapp/index.html', context)   
