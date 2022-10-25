@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from . import views
+from .views import get_stock
 
 urlpatterns = [
     path('',views.home,name="home"),
@@ -14,4 +15,5 @@ urlpatterns = [
     path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
     path('portfolio',views.blog,name ='blog'),
     path('blog/<slug:slug>/', views.PostDetail, name='post_detail'),
+    path('get_stock/',get_stock.as_view()),
 ]

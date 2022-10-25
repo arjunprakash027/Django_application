@@ -12,3 +12,6 @@ nasapy
 gtts	
 pandas
 requests
+yahoofinancials
+numpy
+pandas
