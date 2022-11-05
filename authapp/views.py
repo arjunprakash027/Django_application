@@ -20,6 +20,7 @@ from datetime import timedelta
 from django.views import View
 from django.http import JsonResponse
 import json
+import requests
 
 
 # Create your views here.
@@ -31,7 +32,18 @@ def home(request):
         'query': queryset,
         'joke':joke.text,
     }
-    return render(request, 'authapp/index.html', context)   
+    if request.method == 'POST':
+        large_url = request.POST.get('url')
+        x = requests.get('https://ulvis.net/api.php?url={}'.format(large_url))
+        print(x.text)
+        context = {
+        'query': queryset,
+        'joke':joke.text,
+        'short_url':x.text,
+    }
+        return render(request, 'authapp/index.html', context)
+    else:     
+        return render(request, 'authapp/index.html', context)   
 def blog(request):
     return render(request, 'authapp/portfolio.html')
 
@@ -96,6 +108,7 @@ def feedback(request):#get feedback from user
         user_report = request.POST.get('report')
 
         new_report = report(name=username,user_feedback=user_report)
+        print(username,user_report)
         new_report.save()
         return redirect('home')
 
@@ -145,6 +158,13 @@ def signout(request):#signout
 def PostDetail(request,slug):#show the details of the blog
     blog_details = Post.objects.get(slug=slug)
     return render(request, 'authapp/post_detail.html',{'details': blog_details})
+
+def url_shorten(request):
+    if request.method == 'POST':
+        large_url = request.POST.get('url')
+        x = requests.get('https://w3schools.com/python/demopage.htm')
+        print(x.text)
+
 
 class get_stock(View):
     #if request.method == "POST":

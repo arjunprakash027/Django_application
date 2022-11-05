@@ -85,6 +85,14 @@
           </div>
           {% endfor %}
         
+          <form action="" method="post">
+            <label for="fname">Enter the url you want to shorten:</label><br>
+            <input type="text" id="url" name="url" value=""><br>
+            <input type="submit" value="Submit">
+          </form>
+          {{short_url}}
+
+        
     {% endif %}
     
 </body>
