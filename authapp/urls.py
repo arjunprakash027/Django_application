@@ -15,5 +15,5 @@ urlpatterns = [
     path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
     path('portfolio',views.blog,name ='blog'),
     path('blog/<slug:slug>/', views.PostDetail, name='post_detail'),
-    path('get_stock/',get_stock.as_view()),
+    path('get_stock/<str:stock>',get_stock.as_view()),
 ]

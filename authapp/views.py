@@ -168,9 +168,9 @@ def url_shorten(request):
 
 class get_stock(View):
     #if request.method == "POST":
-    def post(self, request):
-        data = json.loads(request.body.decode("utf-8"))
-        stock = data.get('stock')
+    def get(self,request,stock):
+        # data = json.loads(request.body.decode("utf-8"))
+        # stockname = data.get('stock')
         positive = 0
         negative = 0
         total_for_MO = 0
