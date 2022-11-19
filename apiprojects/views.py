@@ -82,7 +82,7 @@ class get_stock(View):
         else:
             conclusion = "negative growth your way"
 
-        details = {"price":price,"50 days moving average":fifty_ma,"200 days moving average":twohundred_ma,"our prediction":conclusion}
+        details = {"price":price,"50days":fifty_ma,"200days":twohundred_ma,"prediction":conclusion}
         print(details)
         return JsonResponse(details, status=201)
 # Create your views here.
