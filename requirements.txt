@@ -1,5 +1,6 @@
 asgiref == 3.5.2
 Django == 4.0.6
+django-cors-headers
 pip == 22.1.2
 setuptools == 62.6.0
 sqlparse == 0.4.2
